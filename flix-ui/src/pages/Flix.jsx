@@ -55,7 +55,7 @@ export default function Flix() {
 }
 
 const Container = styled.div`
- background-color: black;
+ background-color: #001a36;
  .hero{
     position: relative;
     .background-image{
