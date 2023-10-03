@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
 import BackgroundImage from '../components/BackgroundImage';
 import {firebaseAuth} from "../utils/firebase-config";
 import { createUserWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth'
@@ -12,17 +13,22 @@ export default function SignUp() {
         email: "",
         password: "",
     });
+   
 
     const handleSignIn = async () => {
         try {
             console.log(formValues);
             const {email,password} = formValues;
             await createUserWithEmailAndPassword(firebaseAuth,email.toString(),password.toString());
+      
+           
         } catch (err) {
             console.log(err)
         }
     }
-
+     
+   
+     
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) navigate("/");
     });
@@ -49,7 +55,7 @@ export default function SignUp() {
                         }
 
                     </div>
-                    <button className='sign' onClick={handleSignIn}>SignUp</button>
+                    <button className='sign'   onClick={handleSignIn}>SignUp</button>
                 </div>
             </div>
         </Container>
